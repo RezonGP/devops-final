@@ -1,0 +1,35 @@
+---
+- name: Tu dong cai dat moi truong va Deploy Du an DevOps Final
+  hosts: vps
+  become: yes
+  tasks:
+    - name: 1. Cap nhat danh sach phan mem va cai Git
+      apt:
+        update_cache: yes
+        name:
+          - curl
+          - git
+        state: present
+
+    - name: 2. Tu dong cai dat Docker
+      apt:
+        name: docker.io
+        state: present
+
+    - name: 3. Khoi dong va bat dich vu Docker
+      systemd:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: 4. Keo source code du an tu GitHub ve VPS
+      git:
+        repo: "YOUR_GITHUB_REPO_URL"
+        dest: "/opt/devops-final-project"
+        version: "main"
+        force: yes
+
+    - name: 5. Khoi chay Docker Compose deploy toan bo ung dung
+      command: docker compose up --build -d
+      args:
+        chdir: "/opt/devops-final-project"
