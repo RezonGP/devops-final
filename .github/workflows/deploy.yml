@@ -1,0 +1,32 @@
+name: CI/CD Pipeline - DevOps Final Project
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 1. Checkout Source Code tu GitHub
+        uses: actions/checkout@v3
+
+      - name: 2. Kich hoat Docker Buildx
+        uses: actions/setup-buildx-action@v2
+
+      - name: 3. Build thu cac Docker Images
+        run: |
+          docker compose build
+
+      - name: 4. Tu dong SSH sang VPS va Deploy bang Docker Compose
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ubuntu
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /opt/devops-final-project
+            git pull origin main
+            docker compose up --build -d

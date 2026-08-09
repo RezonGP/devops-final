@@ -13,5 +13,6 @@ variable "instance_type" {
 variable "key_name" {
   description = "Tên SSH Key để truy cập VPS"
   type        = string
-  default     = "devops-key"
+  default     = "phong-aws"
 }
+
