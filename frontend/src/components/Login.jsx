@@ -29,8 +29,20 @@ function Login() {
             <section className="login-container">
                 <div className="px-6 h-full text-gray-800">
                     <div className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6">
-                        <div className="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-0">
-                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" className="w-full" alt="Sample" />
+                        <div className="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-0 flex justify-center">
+                            <svg className="w-full h-auto max-h-96" viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="500" height="400" rx="20" fill="#F0F4F8"/>
+                                <circle cx="250" cy="200" r="140" fill="#E2E8F0"/>
+                                <rect x="160" y="100" width="180" height="220" rx="16" fill="#2B6CB0"/>
+                                <rect x="180" y="120" width="140" height="180" rx="12" fill="#FFFFFF"/>
+                                <circle cx="250" cy="170" r="30" fill="#E2E8F0"/>
+                                <circle cx="250" cy="160" r="14" fill="#4A5568"/>
+                                <path d="M225 185C225 175 275 175 275 185V195H225V185Z" fill="#4A5568"/>
+                                <rect x="200" y="215" width="100" height="10" rx="5" fill="#CBD5E0"/>
+                                <rect x="200" y="235" width="100" height="10" rx="5" fill="#CBD5E0"/>
+                                <rect x="215" y="260" width="70" height="22" rx="6" fill="#3182CE"/>
+                                <path d="M243 271L247 275L257 265" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+                            </svg>
                         </div>
                         <div className="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
                             <form method='post' onSubmit={handleSubmit}>
